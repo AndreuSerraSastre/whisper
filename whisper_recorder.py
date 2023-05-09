@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     while True:
         try:
-            play_sound('audio.mp3')
+            play_sound('audio.wav')
         except KeyboardInterrupt:
             print("Terminando el programa.")
             break
