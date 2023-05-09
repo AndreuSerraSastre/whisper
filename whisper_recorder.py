@@ -1,19 +1,22 @@
-from pydub import AudioSegment
-from pydub.playback import play
+import pygame
+import time
 
 
-def play_text():
-    name = "audio.mp3"
-    sound = AudioSegment.from_file(name, format="mp3")
-    play(sound)
+def play_sound(file):
+    pygame.mixer.init()
+    pygame.mixer.music.load(file)
+    pygame.mixer.music.play()
+
+    while pygame.mixer.music.get_busy():
+        time.sleep(1)
 
 
 if __name__ == "__main__":
 
     while True:
         try:
-            play_text()
-
+            sound_file = 'audio.mp3'
+            play_sound(sound_file)
         except KeyboardInterrupt:
             print("Terminando el programa.")
             break
