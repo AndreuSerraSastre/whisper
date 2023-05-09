@@ -1,18 +1,15 @@
-from pydub import AudioSegment
-from pydub.playback import play
+import os
 
 
-def play_text():
-    name = "audio.mp3"
-    sound = AudioSegment.from_file(name, format="mp3")
-    play(sound)
+def play_sound(filename):
+    os.system(f'aplay {filename}')
 
 
 if __name__ == "__main__":
 
     while True:
         try:
-            play_text()
+            play_sound('audio.mp3')
         except KeyboardInterrupt:
             print("Terminando el programa.")
             break
